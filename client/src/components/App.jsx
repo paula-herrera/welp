@@ -14,15 +14,14 @@ class App extends React.Component {
     this.getDataFromDatabase =   this.getDataFromDatabase.bind(this)
     this.handleAddClick = this.handleAddClick.bind(this)
     this.handleRandom = this.handleRandom.bind(this)
-
   }
 
   componentDidMount(){
-      this.getDataFromDatabase()
+      this.getDataFromDatabase();
   }
 
   getDataFromDatabase(){
-      Axios.get('/app/main')
+      Axios.get('/api/all')
       .then((results) => {
           this.setState({
               choices: results.data
@@ -36,7 +35,7 @@ class App extends React.Component {
 
     this.setState({
         [e.target.name]: e.target.value
-    }, () => console.log(this.state))
+    })
   }
 
   handleAddClick(){
@@ -44,7 +43,7 @@ class App extends React.Component {
           window.alert('Please enter at least one character.')
       } else {
         let { restaurant } = this.state;
-        Axios.post("/app/main", {
+        Axios.post("/api/add", {
           restaurant: restaurant,
         })
           .then(() => this.setState({ restaurant: "" })) // sets state back to blank to force re-render
@@ -54,18 +53,22 @@ class App extends React.Component {
 
   handleClearClick(){
     let {restaurant} = this.state
-      Axios.delete('/', {
-        restaurant: restaurant 
-      })
+      Axios.delete('/api/all')
       .then(() => this.setState({restaurant: ''})) // sets state back to blank to force re-render
       .catch(err => console.err(err))
   }
 
   handleRandom(e){
-      e.preventDefault();
+    e.preventDefault();
     this.setState({
         displayChoice: !this.state.displayChoice
     })
+  }
+
+  handleDeleteOne(id){
+    Axios.delete(`/api/deleteOne/${id}`) // utilizing req.params
+    .then(() => this.setState({restaurant: ''}))
+    .catch(err => console.error(err))
   }
 
     render(){
@@ -89,7 +92,7 @@ class App extends React.Component {
                         <input placeholder="Restaurant" name="restaurant" onChange={this.handleChange.bind(this)} className="inputBar"></input>
                         <button onClick={this.handleAddClick.bind(this)} id="addButton">Add</button>
                         <button onClick={this.handleClearClick.bind(this)} id="clearButton">Clear</button>
-                        <h3>Add restaurants to get stated!</h3>
+                        <h3>Add restaurants to get started!</h3>
                         <button onClick={(e) => this.handleRandom(e)} id="randomButton">Go!</button>
                     </form>
                 </div>
@@ -101,8 +104,8 @@ class App extends React.Component {
                         <input placeholder="Restaurant" name="restaurant" onChange={this.handleChange.bind(this)} className="inputBar"></input>
                         <button onClick={this.handleAddClick.bind(this)} id="addButton">Add</button>
                         <button onClick={this.handleClearClick.bind(this)} id="clearButton">Clear</button>
-                         <List choices={this.state.choices}/>
-                        <button onClick={(e) => this.handleRandom(e)} id="randomButton">Go!</button>
+                         <List choices={this.state.choices} handleDeleteOne={this.handleDeleteOne.bind(this)} />
+                        <button onClick={(e) => this.handleRandom(e) } id="randomButton">Go!</button>
                     </form>
                 </div>
             )

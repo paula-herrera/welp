@@ -22,11 +22,25 @@ let helpers = {
                 }
             })
     },
-    deleteOne: (req, res) => {
-       
+    deleteAll: (callback) => {
+       let queryString = `TRUNCATE table choices;`
+        db.query(queryString, (err, results) => {
+            if (err){
+                callback(err)
+            } else {
+                callback(null, results)
+            }
+        })
     },
-    updateOne: (req, res) => {
-        
+    deleteOne: (id, callback) => {
+        let queryString = `DELETE FROM choices WHERE id = ${id};` // we want to delete one item from the database with this provided id
+        db.query(queryString, (err, results) => {
+            if (err){
+                callback(err)
+            } else {
+                callback(null, results)
+            }
+        })
     }
 }
 
