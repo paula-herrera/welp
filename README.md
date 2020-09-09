@@ -25,7 +25,6 @@ For Review use purpose:
 - npm run init-database
 - npm run build
 - npm start
-- npm run dev [OPTIONAL]
 
 ## Ultimate Goal:
 - Setup express.js to provide routing & basic CRUD endpoints to accommodate with front-end functionality
