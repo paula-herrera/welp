@@ -10,6 +10,42 @@ body {
     margin-top: 100px;
 }
 
+.navBarTop {
+    background: #e2e2e2;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    position: absolute;
+    height: 25px;
+}
+
+.navJustify {
+    width: 20%;
+    display: flex;
+    margin-left: auto;
+}
+
+.navText {
+    margin-right: auto;
+}
+
+.navText:hover {
+    color: white;
+    cursor: pointer;
+}
+
+#expressdocs {
+    text-decoration: none;
+    color: #561b7d;
+    margin-right: auto;
+}
+
+#expressdocs:hover {
+    color: white;
+    cursor: pointer;
+}
+
 .inputBar{
     border: none;
     margin-top: 50px;
@@ -25,12 +61,14 @@ body {
     font-family: 'Mulish', sans-serif;
     margin-left: 10px;
     border-radius: 2px;
-    background-color: rgb(137, 199, 141)
+    background-color: rgb(137, 199, 141);
+    color: white;
 }
 
 #addButton:hover {
     cursor: pointer;
     background-color: rgb(102, 160, 100);
+   
 }
 
 #clearButton{
@@ -55,6 +93,8 @@ body {
     list-style: none;
     padding: 1%;
     margin: auto;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 #randomButton{
@@ -72,7 +112,8 @@ body {
 }
 
 
-#listDiv{
+#listDiv {
+    padding: 25px 0;
 }
 
 .individual_container{
@@ -85,3 +126,22 @@ body {
     cursor: pointer;
     font-weight: 600;
 }
+
+#choiceText {
+    font-weight: 600;
+    font-size: 20px;
+    padding-top: 30px;
+}
+
+#copyrights {
+    text-align: right;
+    position: absolute;
+    bottom: 5%;
+    width: 95%;
+}
+
+#redirectText {
+    text-decoration: none;
+    color: #4e94c5;
+}
+

@@ -66,7 +66,7 @@ class App extends React.Component {
 
   handleDeleteOne(id){
     Axios.delete(`/api/deleteOne/${id}`) // utilizing req.params
-    .then(() =>  this.getDataFromDatabase())
+    .then(() =>  this.getDataFromDatabase()) // calls a get request after each successful delete
     .catch(err => console.error(err))
   }
 
@@ -78,8 +78,8 @@ class App extends React.Component {
                         <input placeholder="Restaurant" name="restaurant" onChange={this.handleChange.bind(this)} className="inputBar"></input>
                         <button onClick={this.handleAddClick.bind(this)} id="addButton">Add</button>
                         <button onClick={this.handleClearClick.bind(this)} id="clearButton">Clear</button>
-                        <h3>Your choice is: </h3>
-                        <h1>{this.state.choices[Math.floor(Math.random() * this.state.choices.length)].restaurant}</h1>
+                        <div id="choiceText">Your choice is: </div>
+                        <h1 style={{"color":"rgb(83 177 89)"}}>{this.state.choices[Math.floor(Math.random() * this.state.choices.length)].restaurant}</h1>
                         <button onClick={(e) => this.handleRandom(e)} id="randomButton">Go!</button>
                     </form>
                 </div>
@@ -91,7 +91,7 @@ class App extends React.Component {
                         <input placeholder="Restaurant" name="restaurant" onChange={this.handleChange.bind(this)} className="inputBar"></input>
                         <button onClick={this.handleAddClick.bind(this)} id="addButton">Add</button>
                         <button onClick={this.handleClearClick.bind(this)} id="clearButton">Clear</button>
-                        <h3>Add restaurants to get started!</h3>
+                        <h3 style={{"padding":"25px 0"}}>Add restaurants to get started!</h3>
                         <button onClick={(e) => this.handleRandom(e)} id="randomButton">Go!</button>
                     </form>
                 </div>
