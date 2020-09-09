@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const router = require('./router.js');
-const port = 1738;
+const port = 3333;
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json())
@@ -14,4 +14,4 @@ app.use('/api', router)
 
 
 
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+app.listen(port, () => console.log(`Successfully connected to Welp! on http://localhost:${port}`))

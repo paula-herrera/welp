@@ -10,11 +10,12 @@ To get started: clone down a version of this application using the top right clo
 once into Terminal, make sure you have npm and git accessible.
 run ```npm install ``` in one terminal, and npm run build in another
 
-On success: you should be able to see the following message: "successfully connected to Welp! on http://localhost:3000/"
+On success: you should be able to see the following message: "Successfully connected to Welp! on http://localhost:3333/"
 
-Navigate to your browser and enter the URL http://localhost:3000/
+Navigate to your browser and enter the URL http://localhost:3333/
 
-
+Demo:
+<p align="center"><img src="https://welpassets.s3-us-west-1.amazonaws.com/welpDemo.gif"/></p>
 For Review use purpose:
 
 # express-review
@@ -31,7 +32,7 @@ For Review use purpose:
 
 ## Step 1
 - Check [Express.js official docs](https://expressjs.com/en/api.html) to get started
-- Define port with a number of 3000
+- Define port with port number 3333
 - Set up relevant middlewares alongside with express (body parser, CORS, morgan, etc)
 - Serve [static](https://expressjs.com/en/starter/static-files.html) files (html, css) in /client/public folder using ```express.static```
 - Understand the purpose of '/' argument in serving static files
