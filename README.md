@@ -23,6 +23,7 @@ For Review use purpose:
 - npm install
 - npm run build
 - npm start
+- npm run dev [OPTIONAL]
 
 ## Step 1
 - Create an express server that will listen on port 1738

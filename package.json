@@ -5,7 +5,8 @@
   "main": "server/index.js",
   "scripts": {
     "start": "nodemon",
-    "build": "webpack -w"
+    "build": "webpack -w",
+    "dev": "live-server /client/public/index.html"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,8 @@
     "react-dom": "16.13.1",
     "mysql": "2.18.1",
     "path": "0.12.7",
-    "nodemon": "2.0.4"
+    "nodemon": "2.0.4",
+    "live-server": "1.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
