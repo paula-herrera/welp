@@ -15,7 +15,7 @@ On success: you should be able to see the following message: "Successfully conne
 Navigate to your browser and enter the URL http://localhost:3333/
 
 Demo:
-<p align="center"><img src="https://welpassets.s3-us-west-1.amazonaws.com/welpDemo.gif"/></p>
+<p align="center"><img src="https://welpassets.s3-us-west-1.amazonaws.com/demo.gif"/></p>
 For Review use purpose:
 
 # express-review
