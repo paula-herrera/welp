@@ -33,7 +33,7 @@ For Review use purpose:
 - Check [Express.js official docs](https://expressjs.com/en/api.html) to get started
 - Define port with a number of 3000
 - Set up relevant middlewares alongside with express (body parser, CORS, morgan, etc)
-- Serve static files (html, css) in /client/public folder using ```express.static  ```. Refer to [docs](https://expressjs.com/en/starter/static-files.html)
+- Serve [static](https://expressjs.com/en/starter/static-files.html) files (html, css) in /client/public folder using ```express.static```
 - Understand the purpose of '/' argument in serving static files
 - Direct all requests after the url '/api' with express router
 - Initialize the express server with listen method, providing port and callback
@@ -45,7 +45,7 @@ For Review use purpose:
 
 ## Step 3
 - Fill in request handling in controller.js for ```addOne()``` method (refer to official docs if needed)
-- Test '/add' endpoint via Postman
+- Test '/add' endpoint via [Postman](https://www.postman.com/downloads/)
 
 ## Step 4
 - Create a route to '/all' with a GET request to invoke ```getAll()``` in controllers.js
