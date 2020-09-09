@@ -7,7 +7,6 @@ class App extends React.Component {
     super(props);
     this.state = {
         displayChoice: false,
-        // choices: ["Howling Rays", "Halal Guys", "Wendys"],
         choices: [],
         restaurant: ''
     }
@@ -67,7 +66,7 @@ class App extends React.Component {
 
   handleDeleteOne(id){
     Axios.delete(`/api/deleteOne/${id}`) // utilizing req.params
-    .then(() => this.setState({restaurant: ''}))
+    .then(() =>  this.getDataFromDatabase())
     .catch(err => console.error(err))
   }
 
