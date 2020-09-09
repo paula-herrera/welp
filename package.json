@@ -5,6 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "start": "nodemon",
+    "init-database": "mysql -u root < schema.sql",
     "build": "webpack -w",
     "dev": "live-server /client/public/index.html"
   },

@@ -21,6 +21,7 @@ For Review use purpose:
 
 ### Setup
 - npm install
+- npm run init-database
 - npm run build
 - npm start
 - npm run dev [OPTIONAL]
