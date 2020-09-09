@@ -15,8 +15,4 @@ router
 .route('/deleteOne/:id')
 .delete(controllers.deleteOne)
 
-// router
-// .route('/signup')
-// .get(controllers.getOne)
-
 module.exports = router;

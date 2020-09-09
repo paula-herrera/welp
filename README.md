@@ -25,31 +25,42 @@ For Review use purpose:
 - npm start
 - npm run dev [OPTIONAL]
 
+## Ultimate Goal:
+- Setup express.js to provide routing & basic CRUD endpoints to accommodate with front-end functionality
+
 ## Step 1
-- Create an express server that will listen on port 1738
-- Direct all requests after the url '/api'
+- Check [Express.js official docs](https://expressjs.com/en/api.html) to get started
+- Define port with a number of 3000
+- Set up relevant middlewares alongside with express (body parser, CORS, morgan, etc)
+- Serve static files (html, css) in /client/public folder using ```javascript express.static  ```. Refer to [docs](https://expressjs.com/en/starter/static-files.html)
+- Understand the purpose of '/' argument in serving static files
+- Direct all requests after the url '/api' with express router
+- Initialize the express server with listen method, providing port and callback
 
 ## Step 2
-- Create a get route to return all choices 
-- Create a get route to return a specific restaurant
-- Create a get route to submit a post request with just "restaurant" as body
-- Test via Postman
+- Initialize router.js file with require statements.
+- Create a route to '/add' with a POST request to invoke ```javascript addOne()``` in controllers.js
+- export router object
 
 ## Step 3
-- Create a delete route to remove a restaurant
-- Create a delete route to remove ALL restaurants
-- Test via Postman
+- Fill in request handling in controller.js for ```javascript addOne()``` method (refer to official docs if needed)
+- Test '/add' endpoint via Postman
 
 ## Step 4
-- Serve your client to the port you're listening on using your express server
+- Create a route to '/all' with a GET request to invoke ```javascript getAll()``` in controllers.js
+- Fill in request handling in controller.js for ```javascript getAll()``` method (refer to official docs if needed)
+- Test via Postman
 
 ## Step 5
-- Create a function on your client that will make a get request to your server to get all restaurants
-- Create a function on your client that will make a post request to your server to add a restaurant
-- Create a function on your client that will make a delete request to your server to delete a restaurant
-- Create a function on your client that will make a delete request to your server to delete ALL restaurants
+- Create a route to '/all' with a DELETE request to invoke ```javascript deleteAll()``` in controllers.js
+- Fill in request handling in controller.js for ```javascript deleteAll()``` method (refer to official docs if needed)
+- Test via Postman
+
+## Step 6
+- Create a route to '/deleteOne/:id' with a DELETE request to invoke ```javascript deleteOne()``` in controllers.js
+- Fill in request handling in controller.js for ```javascript deleteOne()``` method (refer to official docs if needed)
+- Test via Postman
 
 ## EXTRA CREDIT
-- Refactor your server to connect to your database instead of using the data from restaurants.json
-- Add an update route 
-- Add an additional endpoint to your server
+- Add an additional update endpoint to your routes
+- Serve an ABOUT page with express static

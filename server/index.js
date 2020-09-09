@@ -9,7 +9,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 
-app.use('/home', express.static(path.join(__dirname, '/../client/public')))
+app.use('/', express.static(path.join(__dirname, '/../client/public')))
 app.use('/api', router)
 
 
