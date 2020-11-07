@@ -5,7 +5,6 @@
   "main": "server/index.js",
   "scripts": {
     "start": "nodemon",
-    "init-database": "mysql -u root < schema.sql",
     "build": "webpack -w",
     "dev": "live-server /client/public/index.html"
   },
@@ -24,12 +23,12 @@
     "body-parser": "1.19.0",
     "cors": "2.8.5",
     "express": "4.17.1",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "mysql": "2.18.1",
-    "path": "0.12.7",
+    "live-server": "1.2.1",
+    "mongoose": "^5.10.13",
     "nodemon": "2.0.4",
-    "live-server": "1.2.1"
+    "path": "0.12.7",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
