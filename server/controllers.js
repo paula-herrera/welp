@@ -29,6 +29,7 @@ let controllers = {
           })
     },
     deleteOne: (req, res) => {
+        console.log(req.params)
         choice.deleteOne({ _id: req.params.id})
         .then((response) => {
             res.status(200).send('Deleted');

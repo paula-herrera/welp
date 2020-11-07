@@ -13,6 +13,7 @@ app.use(body.urlencoded({extended:true}));
 app.use(morgan('dev'));
 app.use(cors());
 
+
 app.use('/api', router);
 
 app.use('/', express.static(path.join(__dirname, '../client/public')));
