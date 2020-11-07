@@ -1,98 +1,66 @@
 import React from 'react';
 import Axios from 'axios';
-import List from './List.jsx'
+
+// all the functions you need are here, you just need to write them
+
+// the page should show the "add restaurants to get started" section if there are no restaurants
+
+// you should be able to add a restaurant
+
+// you should be able to render all restaraunts that have been added
+
+// you should be able to delete all restaurants
+
+// you should be able to remove an individual restaurant from the list
 
 class App extends React.Component {
     constructor(props){
     super(props);
     this.state = {
-        displayChoice: false,
-        choices: [],
-        restaurant: ''
+        // add state here
     }
-    this.getDataFromDatabase =   this.getDataFromDatabase.bind(this)
-    this.handleAddClick = this.handleAddClick.bind(this)
-    this.handleRandom = this.handleRandom.bind(this)
   }
 
-  componentDidMount(){
-      this.getDataFromDatabase();
+  componentDidMount() {
+    // do something
   }
 
   getDataFromDatabase(){
-      Axios.get('/api/all')
-      .then((results) => {
-          this.setState({
-              choices: results.data
-          }, () => console.log(this.state))
-      })
-      .catch((err) => { console.error(err)})
+
   }
 
   handleChange(e){
-    e.preventDefault() // preventing page from refreshing on form submission
-
-    this.setState({
-        [e.target.name]: e.target.value
-    })
+    // be sure to prevent page from refreshing on form submission
   }
 
   handleAddClick(){
-      if (this.state.restaurant.length < 1){
-          window.alert('Please enter at least one character.')
-      } else {
-        let { restaurant } = this.state;
-        Axios.post("/api/add", {
-          restaurant: restaurant,
-        })
-          .then(() => this.setState({ restaurant: "" })) // sets state back to blank to force re-render
-          .catch((err) => console.err(err));
-      }
+    // at some point you should set state back to blank to force re-render
   }
 
   handleClearClick(){
-    let {restaurant} = this.state
-      Axios.delete('/api/all')
-      .then(() => this.setState({restaurant: ''})) // sets state back to blank to force re-render
-      .catch(err => console.err(err))
+    // at some point you should set state back to blank to force re-render
   }
 
-  handleRandom(e){
-    e.preventDefault();
-    this.setState({
-        displayChoice: !this.state.displayChoice
-    })
+  handleShowRandomChoice(e){
+    // be sure to prevent page from refreshing on form submission
   }
 
   handleDeleteOne(id){
-    Axios.delete(`/api/deleteOne/${id}`) // utilizing req.params
-    .then(() =>  this.getDataFromDatabase()) // calls a get request after each successful delete
-    .catch(err => console.error(err))
+
   }
 
+  // you will need to change conditinonal rendering to use state
     render(){
-        if (this.state.displayChoice){
+
+         if (true){
             return (
                 <div>
                     <form>
-                        <input placeholder="Restaurant" name="restaurant" onChange={this.handleChange.bind(this)} className="inputBar"></input>
-                        <button onClick={this.handleAddClick.bind(this)} id="addButton">Add</button>
-                        <button onClick={this.handleClearClick.bind(this)} id="clearButton">Clear</button>
-                        <div id="choiceText">Your choice is: </div>
-                        <h1 style={{"color":"rgb(83 177 89)"}}>{this.state.choices[Math.floor(Math.random() * this.state.choices.length)].restaurant}</h1>
-                        <button onClick={(e) => this.handleRandom(e)} id="randomButton">Go!</button>
-                    </form>
-                </div>
-            )
-        } else if (!this.state.choices.length){
-            return (
-                <div>
-                    <form>
-                        <input placeholder="Restaurant" name="restaurant" onChange={this.handleChange.bind(this)} className="inputBar"></input>
-                        <button onClick={this.handleAddClick.bind(this)} id="addButton">Add</button>
-                        <button onClick={this.handleClearClick.bind(this)} id="clearButton">Clear</button>
+                        <input placeholder="Restaurant" name="restaurant" className="inputBar"></input>
+                        <button id="addButton">Add</button>
+                        <button id="clearButton">Clear</button>
                         <h3 style={{"padding":"25px 0"}}>Add restaurants to get started!</h3>
-                        <button onClick={(e) => this.handleRandom(e)} id="randomButton">Go!</button>
+                        <button  id="randomButton">Go!</button>
                     </form>
                 </div>
             )
@@ -100,11 +68,24 @@ class App extends React.Component {
             return (
                 <div>
                     <form>
-                        <input placeholder="Restaurant" name="restaurant" onChange={this.handleChange.bind(this)} className="inputBar"></input>
-                        <button onClick={this.handleAddClick.bind(this)} id="addButton">Add</button>
-                        <button onClick={this.handleClearClick.bind(this)} id="clearButton">Clear</button>
-                         <List choices={this.state.choices} handleDeleteOne={this.handleDeleteOne.bind(this)} />
-                        <button onClick={(e) => this.handleRandom(e) } id="randomButton">Go!</button>
+                        <input placeholder="Restaurant" name="restaurant" className="inputBar"></input>
+                        <button id="addButton">Add</button>
+                        <button id="clearButton">Clear</button>
+                        <div id="listDiv">
+                            <div className="individual_container">
+                            <div id="restaurantItems">Tatsu</div>
+                                <div className="cross_button" >x</div>
+                            </div>
+                            <div className="individual_container">
+                            <div id="restaurantItems">Guelaguetza</div>
+                                <div className="cross_button" >x</div>
+                            </div>
+                            <div className="individual_container">
+                            <div id="restaurantItems">Canter's</div>
+                                <div className="cross_button" >x</div>
+                            </div>
+                         </div>
+                        <button id="randomButton">Go!</button>
                     </form>
                 </div>
             )

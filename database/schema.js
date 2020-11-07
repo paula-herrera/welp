@@ -1,8 +1,4 @@
 var mongoose = require('mongoose');
 
-// Complete the schema below.
-var choiceSchema = mongoose.Schema({
-  restaurant: String
-});
+// Complete the schema here
 
-module.exports = choiceSchema;
