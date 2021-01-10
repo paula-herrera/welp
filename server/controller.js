@@ -24,8 +24,14 @@ let controllers = {
   deleteOne: () => {
     console.log('delete one')
   },
-  deleteAll: () => {
-    console.log('delete all')
+  deleteAll: (req, res) => {
+    choice.deleteMany({})
+      .then(() => {
+        res.sendStatus(200);
+      })
+      .catch(err => {
+        res.sendStatus(500);
+      })
   }
 }
 

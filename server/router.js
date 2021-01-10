@@ -9,7 +9,7 @@ router
     controllers.getAll(req, res);
   })
   .delete((req, res) => {
-    controllers.deleteAll();
+    controllers.deleteAll(req, res);
   });
 
 router
