@@ -21,7 +21,7 @@ router
 router
   .route('/deleteOne/:id')
   .delete((req, res) => {
-    controllers.deleteOne();
+    controllers.deleteOne(req, res);
   })
 
 module.exports = router;
