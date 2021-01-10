@@ -1,25 +1,27 @@
 const express = require('express');
 let router = express.Router();
+const controllers = require('./controller');
+
 
 router
   .route('/all')
   .get((res, req) => {
-    console.log('get /all');
+    controllers.getAll();
   })
   .delete((req, res) => {
-    console.log('delete /all');
+    controllers.deleteAll();
   });
 
 router
   .route('/add')
   .post((req, res) => {
-    console.log('post /add');
+    controllers.addOne();
   });
 
 router
   .route('/deleteOne/:id')
   .delete((req, res) => {
-    console.log('delete /deleteOne/:id')
+    controllers.deleteOne();
   })
 
 module.exports = router;
