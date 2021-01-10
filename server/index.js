@@ -2,8 +2,11 @@ const express = require('express');
 const app = express();
 const port = 3333;
 const router = require('./router');
+const bodyParser = require('body-parser');
 
-app.use("/api", router);
+app.use(bodyParser.json());
+
+app.use('/api', router);
 
 
 app.listen(port, () => {

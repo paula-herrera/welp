@@ -5,8 +5,8 @@ const controllers = require('./controller');
 
 router
   .route('/all')
-  .get((res, req) => {
-    controllers.getAll();
+  .get((req, res) => {
+    controllers.getAll(req, res);
   })
   .delete((req, res) => {
     controllers.deleteAll();
@@ -15,7 +15,7 @@ router
 router
   .route('/add')
   .post((req, res) => {
-    controllers.addOne();
+    controllers.addOne(req, res);
   });
 
 router
