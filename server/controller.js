@@ -1,8 +1,8 @@
-const choice = require('../database/index');
+const Choice = require('../database/index');
 
 let controllers = {
   getAll: (req, res) => {
-    choice.find({})
+    Choice.find({})
       .then(restaurants => {
         res.status(200).send(restaurants);
       })
@@ -12,7 +12,7 @@ let controllers = {
   },
   addOne: (req, res) => {
     console.log('body: ', req.body)
-    choice.create(req.body)
+    Choice.create(req.body)
       .then(restaurant => {
         console.log('restaurant: ', restaurant)
         res.sendStatus(201);
@@ -22,7 +22,7 @@ let controllers = {
       });
   },
   deleteOne: (req, res) => {
-    choice.deleteOne({_id: req.params.id})
+    Choice.deleteOne({_id: req.params.id})
       .then(() => {
         res.sendStatus(200);
       })
@@ -31,7 +31,7 @@ let controllers = {
       })
   },
   deleteAll: (req, res) => {
-    choice.deleteMany({})
+    Choice.deleteMany({})
       .then(() => {
         res.sendStatus(200);
       })
